@@ -82,7 +82,7 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
 @media(max-width:480px){.device-header{padding:18px 18px 14px}.device-header h2{font-size:26px}.device-scroll{padding:20px 18px 24px}.app-name{font-size:21px}.app-version{font-size:10px;padding:4px 7px}.app-row{gap:9px}.app-group h3{font-size:12px}.app-note{padding:12px;font-size:12px}}
 .app-icon{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;color:#737373}
 .case-intro{font:14px/2 var(--serif);color:#686868;margin:0 0 22px}.case-chapters{list-style:none;margin:0;padding:0;border-top:1px solid #dedede}.case-chapters li{display:flex;align-items:center;gap:17px;border-bottom:1px solid #dedede}.chapter-number{flex:none;color:#9a9a9a;font:12px var(--serif);letter-spacing:.08em;width:22px}.chapter-name{display:flex;align-items:center;justify-content:space-between;gap:15px;flex:1;min-width:0;min-height:65px;padding:14px 0;font:21px/1.5 var(--serif);text-decoration:none;text-underline-offset:5px}.chapter-name:hover,.chapter-name:focus-visible{text-decoration:underline}.chapter-name .app-arrow{flex:none}.chapter-name:hover .app-arrow{transform:translate(2px,-2px)}
-.memory-list li{align-items:flex-start;padding:12px 0}.memory-list .chapter-number{padding-top:17px}.memory-entry{flex:1;min-width:0}.memory-list .chapter-name{min-height:44px;padding:7px 0}.memory-description{font:13px/1.95 var(--serif);color:#777;margin:3px 0 6px}
+.memory-cards{list-style:none;margin:0;padding:0}
 .past-works{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;margin-top:20px;padding:12px 15px;border:1px solid #dedede;background:#f6f6f4;font:16px/1.5 var(--serif);text-decoration:none}.past-works:hover,.past-works:focus-visible{background:#eee;text-decoration:underline;text-underline-offset:4px}
 .app-name{flex:1;min-width:0;gap:9px}.app-title{min-width:0;overflow-wrap:anywhere}.app-arrow{flex:none}
 .feedback-note{right:2%;bottom:14%;width:96px;height:53px;z-index:6;--angle:-2deg;display:block;padding:0;border:0;background:transparent;color:var(--ink);text-decoration:none;box-shadow:none;animation:memo-float 4.8s ease-in-out infinite;animation-delay:.35s}
@@ -135,13 +135,13 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
  </div>
 </dialog>
 <dialog class="device-directory" id="memories-files" aria-labelledby="memories-files-title">
- <header class="device-header"><div><h2 id="memories-files-title">Other Memories</h2><p>31 OCT 2026 L's Birthday</p></div><button class="device-close" id="memories-files-close" type="button" aria-label="小説一覧を閉じる" autofocus>×</button></header>
+ <header class="device-header"><div><h2 id="memories-files-title">Other Memories</h2><p> 2026 OCT 31 L's Birthday<br>新作L夢</p></div><button class="device-close" id="memories-files-close" type="button" aria-label="小説一覧を閉じる" autofocus>×</button></header>
  <div class="device-scroll">
-  <ol class="case-chapters memory-list" role="list">
-   <li><span class="chapter-number" aria-hidden="true">01</span><div class="memory-entry"><a class="chapter-name" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="花の褥（Pixivプロフィールへの仮リンク・別タブで開きます）">花の褥<span class="app-arrow" aria-hidden="true">↗</span></a><p class="memory-description">幽霊が出ると噂の廃ホテルを調査するお話です（微ホラー）</p></div></li>
-   <li><span class="chapter-number" aria-hidden="true">02</span><div class="memory-entry"><a class="chapter-name" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="あの日見た夢（Pixivプロフィールへの仮リンク・別タブで開きます）">あの日見た夢<span class="app-arrow" aria-hidden="true">↗</span></a><p class="memory-description">懐かしのダブルL夢です</p></div></li>
-   <li><span class="chapter-number" aria-hidden="true">03</span><div class="memory-entry"><a class="chapter-name" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="女神の導き（Pixivプロフィールへの仮リンク・別タブで開きます）">女神の導き<span class="app-arrow" aria-hidden="true">↗</span></a><p class="memory-description">カジノの闇を暴くLのお話です(イメソン企画用夢小説)</p></div></li>
-  </ol>
+  <ul class="picker-links memory-cards" role="list">
+   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="花の褥（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>花の褥 ↗</strong><span>幽霊が出ると噂の廃ホテルを調査するお話です（微ホラー）</span></a></li>
+   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="あの日見た夢（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>あの日見た夢 ↗</strong><span>懐かしのダブルL夢です</span></a></li>
+   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="女神の導き（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>女神の導き ↗</strong><span>カジノの闇を暴くLのお話です(イメソン企画用夢小説)</span></a></li>
+  </ul>
   <a class="past-works" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="既作 L夢（Pixivプロフィール・別タブで開きます）">既作 L夢<span class="app-arrow" aria-hidden="true">↗</span></a>
   <p class="device-footnote">リンクは別タブで開きます(Pixiv内一部R18作品有り)</p>
  </div>
