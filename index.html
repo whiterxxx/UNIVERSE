@@ -85,6 +85,9 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
 .memory-cards{list-style:none;margin:0;padding:0}
 .past-works{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;margin-top:20px;padding:12px 15px;border:1px solid #dedede;background:#f6f6f4;font:16px/1.5 var(--serif);text-decoration:none}.past-works:hover,.past-works:focus-visible{background:#eee;text-decoration:underline;text-underline-offset:4px}
 .app-name{flex:1;min-width:0;gap:9px}.app-title{min-width:0;overflow-wrap:anywhere}.app-arrow{flex:none}
+.device-notice h3{font:400 20px/1.6 var(--serif);margin:0 0 20px}.device-notice p,.device-notice li{font:14px/2 var(--serif);color:#555;white-space:normal;overflow-wrap:anywhere}.device-notice p{margin:0 0 20px}.device-notice ul{margin:0 0 22px;padding-left:1.3em}.device-notice li+li{margin-top:13px}
+.device-continue{display:block;width:100%;min-height:48px;padding:15px 16px;border:1px solid #242424;background:#242424;color:#fff;font:14px/1.6 var(--serif);cursor:pointer;transition:background .2s}.device-continue:hover{background:#444}.device-back{display:block;min-height:44px;margin:0 0 18px;padding:0;border:0;background:none;color:#666;font:12px/1.8 var(--serif);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.app-card strong{display:flex;align-items:center;gap:10px}.app-card strong span{font:inherit;color:inherit;margin:0}.app-card .app-title{flex:1;min-width:0;overflow-wrap:anywhere}.app-card strong .app-arrow{flex:none;font-size:13px;color:#888}.app-card .app-card-description{font-size:12px;margin-left:30px}.app-card:hover .app-arrow{transform:translate(2px,-2px)}
 .feedback-note{right:2%;bottom:14%;width:96px;height:53px;z-index:6;--angle:-2deg;display:block;padding:0;border:0;background:transparent;color:var(--ink);text-decoration:none;box-shadow:none;animation:memo-float 4.8s ease-in-out infinite;animation-delay:.35s}
 .feedback-note::before{content:'';position:absolute;left:50%;top:-6px;width:26px;height:12px;z-index:2;transform:translateX(-50%) rotate(-4deg);background:#ddded8de;border:1px solid #f8f8f0a8;box-shadow:0 1px 2px #0002}
 .feedback-note::after{content:'↗';position:absolute;right:8px;bottom:6px;z-index:2;width:20px;height:20px;border:1px solid #aaa;border-radius:50%;background:#fafaf8;color:#4f4f4f;text-align:center;font:12px/18px var(--mono);transition:background .25s,color .25s,border-color .25s}
@@ -138,9 +141,9 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
  <header class="device-header"><div><h2 id="memories-files-title">Other Memories</h2><p> 2026 OCT 31 L's Birthday<br>新作L夢</p></div><button class="device-close" id="memories-files-close" type="button" aria-label="小説一覧を閉じる" autofocus>×</button></header>
  <div class="device-scroll">
   <ul class="picker-links memory-cards" role="list">
-   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="花の褥（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>花の褥 ↗</strong><span>幽霊が出ると噂の廃ホテルを調査するお話です<br>※ 微ホラー</span></a></li>
+   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="花の褥（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>花の褥 ↗</strong><span>幽霊が出ると噂の廃ホテルを調査するお話です（微ホラー）</span></a></li>
    <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="あの日見た夢（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>あの日見た夢 ↗</strong><span>懐かしのダブルL夢です</span></a></li>
-   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="女神の導き（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>女神の導き ↗</strong><span>カジノの闇を暴くLのお話です<br>※ イメソン企画用夢小説</span></a></li>
+   <li><a class="picker-link" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="女神の導き（Pixivプロフィールへの仮リンク・別タブで開きます）"><strong>女神の導き ↗</strong><span>カジノの闇を暴くLのお話です(イメソン企画用夢小説)</span></a></li>
   </ul>
   <a class="past-works" href="https://www.pixiv.net/users/125288550" target="_blank" rel="noopener noreferrer" aria-label="既作 L夢（Pixivプロフィール・別タブで開きます）">既作 L夢<span class="app-arrow" aria-hidden="true">↗</span></a>
   <p class="device-footnote">リンクは別タブで開きます(Pixiv内一部R18作品有り)</p>
@@ -155,21 +158,39 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
  <button type="button" class="close" id="birthday-files-close" autofocus>閉じる</button>
 </dialog>
 <dialog class="device-directory" id="device-directory" aria-labelledby="device-title">
- <header class="device-header"><div><h2 id="device-title">L's device</h2><p>個人制作のweb appsです<br>リンクの共有等はしないでください </p></div><button class="device-close" id="device-close" type="button" aria-label="アプリ一覧を閉じる" autofocus>×</button></header>
- <div class="device-scroll">
-  <section class="app-group" aria-labelledby="weather-group"><h3 id="weather-group"><span aria-hidden="true">01</span>お天気確認サイト</h3>
-   <div class="app-row"><a class="app-name" href="https://whiterxxx.github.io/l-weather/" target="_blank" rel="noopener noreferrer" aria-label="L weather 旧版（別タブで開きます）"><svg class="app-icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="app-title">L weather</span><span class="app-arrow" aria-hidden="true">↗</span></a><span class="app-version">旧版</span></div>
-   <div class="app-row"><a class="app-name" href="https://whiterxxx.github.io/l-weather/l-dark/" target="_blank" rel="noopener noreferrer" aria-label="L weather dark 夢強化版（別タブで開きます）"><svg class="app-icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="app-title">L weather dark</span><span class="app-arrow" aria-hidden="true">↗</span></a><span class="app-version caution">⚠︎ 夢強化版</span></div>
+ <header class="device-header"><div><h2 id="device-title">L's device</h2><p id="device-subtitle">ご利用前にお読みください</p></div><button class="device-close" id="device-close" type="button" aria-label="L's deviceを閉じる" autofocus>×</button></header>
+ <div class="device-scroll" id="device-scroll">
+  <section class="device-notice" id="device-notice" aria-labelledby="device-notice-title">
+   <h3 id="device-notice-title" tabindex="-1">web appご利用にあたってのお願い</h3>
+   <p>掲載しているwebアプリは、個人が趣味で制作した非公式の二次創作作品です。原作者様、出版社様、その他公式関係者様とは一切関係ありません。</p>
+   <ul>
+    <li>URLの転載、第三者への共有、外部サイトへの掲載はご遠慮ください。</li>
+    <li>アプリ内の文章、画像、プログラム等の無断転載・複製・再配布・商用利用は禁止しています。</li>
+    <li>アクセスコードや認証方法の答えをSNS等で公開することはお控えください。</li>
+    <li>ご利用の端末やブラウザによっては、正常に動作しない場合があります。</li>
+    <li>個人制作のため、不具合への対応や動作の保証および各種サポートはできかねます。</li>
+    <li>予告なく内容の変更、公開の休止や終了を行う場合があります。</li>
+   </ul>
+   <p>個人の趣味の範囲でお楽しみいただければ幸いです。</p>
+   <button class="device-continue" id="device-continue" type="button">内容を理解してリンク一覧へ →</button>
   </section>
-  <section class="app-group" aria-labelledby="timer-group"><h3 id="timer-group"><span aria-hidden="true">02</span>デバイス風タイマー</h3>
-   <div class="app-row"><a class="app-name" href="https://whiterxxx.github.io/l-device/" target="_blank" rel="noopener noreferrer" aria-label="L device（別タブで開きます）"><svg class="app-icon" data-icon="clock" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="app-title">L device</span><span class="app-arrow" aria-hidden="true">↗</span></a></div>
-  </section>
-  <section class="app-group" aria-labelledby="living-group"><h3 id="living-group"><span aria-hidden="true">03</span>Lと暮らすweb app</h3>
-   <div class="app-row"><a class="app-name" href="https://whiterxxx.github.io/withL/" target="_blank" rel="noopener noreferrer" aria-label="with L 通常版（別タブで開きます）"><svg class="app-icon" data-icon="phone" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><span class="app-title">with L</span><span class="app-arrow" aria-hidden="true">↗</span></a><span class="app-version">通常版</span></div>
-   <div class="app-row"><a class="app-name" href="https://whiterxxx.github.io/withL/plus/" target="_blank" rel="noopener noreferrer" aria-label="with L+ 年齢認証版（別タブで開きます）"><svg class="app-icon" data-icon="phone" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><span class="app-title">with L+</span><span class="app-arrow" aria-hidden="true">↗</span></a><span class="app-version caution">⚠︎18+ 年齢認証版</span></div>
+  <div id="device-apps" hidden>
+  <button class="device-back" id="device-back" type="button">← ご利用にあたってのお願い</button>
+  <section class="app-group" aria-labelledby="weather-group"><h3 id="weather-group"><span aria-hidden="true">01</span>お天気確認サイト</h3><div class="picker-links">
+   <a class="picker-link app-card" href="https://whiterxxx.github.io/l-weather/" target="_blank" rel="noopener noreferrer" aria-label="L weather 旧版（別タブで開きます）"><strong><svg class="app-icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="app-title">L weather</span><span class="app-arrow" aria-hidden="true">↗</span></strong><span class="app-card-description">旧版</span></a>
+   <a class="picker-link app-card" href="https://whiterxxx.github.io/l-weather/l-dark/" target="_blank" rel="noopener noreferrer" aria-label="L weather dark 夢強化版（別タブで開きます）"><strong><svg class="app-icon" data-icon="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span class="app-title">L weather dark</span><span class="app-arrow" aria-hidden="true">↗</span></strong><span class="app-card-description">⚠︎ 夢強化版</span></a>
+  </div></section>
+  <section class="app-group" aria-labelledby="timer-group"><h3 id="timer-group"><span aria-hidden="true">02</span>デバイス風タイマー</h3><div class="picker-links">
+   <a class="picker-link app-card" href="https://whiterxxx.github.io/l-device/" target="_blank" rel="noopener noreferrer" aria-label="L device（別タブで開きます）"><strong><svg class="app-icon" data-icon="clock" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="app-title">L device</span><span class="app-arrow" aria-hidden="true">↗</span></strong><span class="app-card-description">デバイス風タイマー</span></a>
+  </div></section>
+  <section class="app-group" aria-labelledby="living-group"><h3 id="living-group"><span aria-hidden="true">03</span>Lと暮らすweb app</h3><div class="picker-links">
+   <a class="picker-link app-card" href="https://whiterxxx.github.io/withL/" target="_blank" rel="noopener noreferrer" aria-label="with L 通常版（別タブで開きます）"><strong><svg class="app-icon" data-icon="phone" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><span class="app-title">with L</span><span class="app-arrow" aria-hidden="true">↗</span></strong><span class="app-card-description">通常版</span></a>
+   <a class="picker-link app-card" href="https://whiterxxx.github.io/withL/plus/" target="_blank" rel="noopener noreferrer" aria-label="with L+ 年齢認証版（別タブで開きます）"><strong><svg class="app-icon" data-icon="phone" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></svg><span class="app-title">with L+</span><span class="app-arrow" aria-hidden="true">↗</span></strong><span class="app-card-description">⚠︎18+ 年齢認証版</span></a>
+  </div>
    <p class="app-note">with L+のアクセスコードおよび注意事項は、Pixiv内の「<a href="https://www.pixiv.net/novel/show.php?id=28827284" target="_blank" rel="noopener noreferrer" aria-label="秘密の隠れ家（Pixiv・別タブで開きます）">秘密の隠れ家</a>」に記載しています。</p>
   </section>
   <p class="device-footnote">リンクは別タブで開きます。</p>
+  </div>
  </div>
 </dialog>
 <noscript><p style="color:#222;text-align:center;padding:24px">このページを開くにはJavaScriptを有効にしてください。</p></noscript>
@@ -195,9 +216,23 @@ dateLink.addEventListener('click',()=>birthdayFiles.showModal());
 document.querySelector('#birthday-files-close').addEventListener('click',()=>birthdayFiles.close());
 birthdayFiles.addEventListener('close',()=>dateLink.focus({preventScroll:true}));
 const deviceDirectory=document.querySelector('#device-directory'),deviceLink=document.querySelector('#device-link');
-deviceLink.addEventListener('click',()=>deviceDirectory.showModal());
+const deviceNotice=document.querySelector('#device-notice'),deviceApps=document.querySelector('#device-apps');
+const deviceScroll=document.querySelector('#device-scroll'),deviceSubtitle=document.querySelector('#device-subtitle');
+function showDevicePage(showApps){
+ deviceNotice.hidden=showApps;deviceApps.hidden=!showApps;
+ deviceSubtitle.textContent=showApps?'個人制作のweb appsです':'ご利用前にお読みください';
+ deviceScroll.scrollTop=0;
+}
+deviceLink.addEventListener('click',()=>{showDevicePage(false);deviceDirectory.showModal();});
+document.querySelector('#device-continue').addEventListener('click',()=>{
+ if(!deviceDirectory.open)return;
+ showDevicePage(true);document.querySelector('#device-back').focus({preventScroll:true});
+});
+document.querySelector('#device-back').addEventListener('click',()=>{
+ showDevicePage(false);document.querySelector('#device-notice-title').focus({preventScroll:true});
+});
 document.querySelector('#device-close').addEventListener('click',()=>deviceDirectory.close());
-deviceDirectory.addEventListener('close',()=>deviceLink.focus({preventScroll:true}));
+deviceDirectory.addEventListener('close',()=>{showDevicePage(false);deviceLink.focus({preventScroll:true});});
 
 document.querySelector('#no').addEventListener('click',()=>{location.assign('https://www.google.com/');});
 function rememberEntrance(){try{sessionStorage.setItem('l-board-entered','yes');}catch{}}
