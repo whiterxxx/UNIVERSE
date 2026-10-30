@@ -195,8 +195,7 @@ dialog.device-directory{position:fixed;inset:0;margin:auto;padding:0;width:min(6
 </dialog>
 <noscript><p style="color:#222;text-align:center;padding:24px">このページを開くにはJavaScriptを有効にしてください。</p></noscript>
 <script>
-/* 小説とWeb appsのリンク先は、上のHTMLにある各hrefで設定します。
-   この下は入口・ウィンドウ・ボードの線を動かす処理です。 */
+/* この下は入口・ウィンドウ・ボードの線を動かす処理です。 */
 const entrance=document.querySelector('#entrance'), board=document.querySelector('#board');
 const paths=document.querySelector('#thread-paths');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
@@ -265,7 +264,7 @@ window.addEventListener('pageshow',scheduleThreads);
 board.addEventListener('animationend',scheduleThreads);
 document.fonts.ready.then(scheduleThreads);
 document.querySelectorAll('img, image').forEach(img=>img.addEventListener('load',scheduleThreads));
-/* ログ画面の「ボードへ戻る」からは、同じタブで通過済みなら入口を省略します。 */
+/* ログ画面の「ボードへ戻る」からは、同じタブで通過済みなら入口を省略 */
 let returning=false;try{returning=location.hash==='#board'&&sessionStorage.getItem('l-board-entered')==='yes';}catch{}
 if(returning)showBoard(false);
 </script>
