@@ -88,7 +88,7 @@ dialog.record:not([open]){display:none}dialog.record[open]{display:flex;flex-dir
 <script id="log-data" type="application/json">{
   "date": "31 OCT 2026",
   "day": "10/31",
-  "birthdayNovelURL": "",
+  "birthdayNovelURL": "https://www.pixiv.net/novel/show.php?id=29511161",
   "entries": [
     {
       "id": "log-1000",
@@ -237,7 +237,7 @@ dialog.record:not([open]){display:none}dialog.record[open]{display:flex;flex-dir
 }</script>
 <script>
 'use strict';
-// birthdayNovelURL に元小説の公開URLを設定できます。本文は誤字だけ直した元稿です。
+// birthdayNovelURL は元小説へのリンク
 const LOG_CONFIG=JSON.parse(document.querySelector('#log-data').textContent);
 const record=document.querySelector('#record'),rows=document.querySelector('#log-rows'),entryButtons=new Map();
 const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
