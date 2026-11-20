@@ -1,1 +1,169 @@
-
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#131518">
+<meta name="robots" content="noindex, nofollow">
+<title>極上スイーツ</title>
+<style>
+:root{color-scheme:dark;--bg:#131518;--ink:#e8e7e3;--muted:#a4a6aa;--line:#ffffff26;--serif:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"Noto Serif CJK JP",serif;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}html{background:var(--bg);scroll-padding-bottom:160px}body{margin:0;color:var(--ink);font-family:var(--serif);background:radial-gradient(ellipse at 50% 0,#30343b66,transparent 58%);min-height:100svh;-webkit-text-size-adjust:100%}button,select{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,select:focus-visible{outline:2px solid #e8e7e3;outline-offset:5px}[hidden]{display:none!important}::selection{background:#bcc3ce40;color:white}
+body::before{content:"";position:fixed;left:0;right:0;top:0;height:1px;background:#ffffff33;box-shadow:0 0 55px 8px #c5cfdd12;pointer-events:none}
+.masthead{max-width:1120px;margin:auto;padding:28px 30px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font:12px/1.6 var(--mono);letter-spacing:.16em}.masthead span:last-child{letter-spacing:.1em}
+.cover{width:min(100% - 48px,680px);margin:auto;min-height:72svh;padding:72px 0 90px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.cover-mark{height:46px;width:1px;background:linear-gradient(transparent,#ffffff70);margin-bottom:32px}
+.eyebrow{font:12px/1.7 var(--mono);letter-spacing:.2em;color:var(--muted);margin:0 0 23px}
+h1{font-size:clamp(32px,6.5vw,48px);font-weight:400;letter-spacing:.17em;line-height:1.7;margin:0;text-indent:.17em}
+.rule{width:38px;height:1px;background:#ffffff40;margin:29px auto}.cover-note{color:var(--muted);font-size:14px;line-height:2;letter-spacing:.05em;margin:0}
+.cover-actions{display:flex;flex-direction:column;align-items:center;gap:15px;margin-top:42px;width:100%}
+.begin{font:15px/1.6 var(--serif);padding:15px 28px;border:1px solid #a5a8ae80;background:#ffffff09;min-height:52px;min-width:235px;transition:background .25s,border-color .25s}.begin:hover{background:#ffffff14;border-color:#ddd}
+.text-button{font:14px/1.6 var(--sans);padding:10px 8px;min-height:44px;background:none;border:0;color:var(--muted);text-decoration:underline;text-decoration-color:#ffffff40;text-underline-offset:5px}.text-button:hover{color:var(--ink)}
+.is-reading .cover{min-height:0;padding:55px 0 45px}.is-reading .cover-mark{height:26px;margin-bottom:22px}.is-reading .cover-note{display:none}
+.reading{max-width:656px;margin:0 auto;padding:0 28px 90px;min-height:10vh}.story{font-size:17px;font-size:1.0625rem;line-height:2.35;letter-spacing:.055em;overflow-wrap:anywhere;line-break:strict}
+.story p{margin:0 0 1.8em;white-space:pre-wrap}.story p:first-child{color:#f3f1ec}
+.story .current .typed::after{content:"";display:inline-block;width:1px;height:1em;background:#dce0e6;vertical-align:-.1em;margin-left:4px;animation:blink 1.2s steps(1) infinite}.is-paused .story .current .typed::after{animation:none;opacity:.35}
+@keyframes blink{0%,45%{opacity:1}46%,100%{opacity:0}}
+.ending{text-align:center;margin:62px 0 0}.end-rule{display:block;width:34px;height:1px;background:#ffffff50;margin:0 auto 25px}.end-label{font:12px/1.8 var(--mono);letter-spacing:.22em;color:var(--muted)}
+.credit{font:11px/1.9 var(--mono);color:#96999f;text-align:center;margin:50px 0 30px;letter-spacing:.02em;padding:0 16px}
+.player{position:fixed;left:0;right:0;bottom:0;z-index:5;background:#17191cf2;border-top:1px solid var(--line);padding:13px max(18px,env(safe-area-inset-right)) max(13px,env(safe-area-inset-bottom));backdrop-filter:blur(16px)}body.is-reading{padding-bottom:150px}
+.player-inner{width:min(100%,680px);margin:auto}.player-meta{display:flex;justify-content:space-between;gap:18px;font:12px/1.6 var(--sans);color:var(--muted);margin-bottom:10px}.progress{height:1px;background:#ffffff1a;margin-bottom:12px}.progress i{display:block;height:100%;width:0;background:#c6c9cf;transition:width .2s linear}
+.player-actions{display:flex;align-items:center;justify-content:space-between;gap:12px}.pause{min-width:90px;min-height:44px;padding:9px 13px;background:#ffffff0a;border:1px solid #ffffff40;font:14px/1.5 var(--sans)}button:disabled{opacity:.45;cursor:default}
+.speed{display:flex;align-items:center;gap:7px;font:12px var(--sans);color:var(--muted)}select{background:#202328;border:1px solid #ffffff33;border-radius:0;min-height:44px;font:14px var(--sans);padding:8px;max-width:110px}
+.player .text-button{white-space:nowrap;text-decoration:none;color:var(--ink);padding:10px 0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:pre-wrap;border:0}
+@media(max-width:420px){.masthead{padding:22px 22px;font-size:11px}.cover{padding-top:45px}.reading{padding-left:24px;padding-right:24px}.story{line-height:2.25;letter-spacing:.035em}.player-actions{gap:8px}.speed{gap:5px}.speed-label{display:none}.pause{min-width:82px;padding:8px}.player .text-button{font-size:13px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="masthead"><span>UNIVERSE</span><span>L / SHORT STORY</span></header>
+<main>
+ <section class="cover" aria-labelledby="story-title">
+  <div class="cover-mark" aria-hidden="true"></div>
+  <p class="eyebrow">PRIVATE READING</p>
+  <h1 id="story-title">極上スイーツ</h1>
+  <div class="rule" aria-hidden="true"></div>
+  <p class="cover-note">SS<span aria-hidden="true"> ／ </span>001</p>
+  <div class="cover-actions" id="cover-actions" hidden>
+   <button class="begin" id="begin" type="button">文字を流して読む</button>
+   <button class="text-button" id="read-all" type="button">全文を読む</button>
+  </div>
+ </section>
+ <section class="reading" id="reading" aria-label="小説本文" tabindex="-1">
+  <div class="story" id="story">
+   <p>部屋を照らしているのはモニターの青白い光だけだ。</p>
+   <p>私は椅子に座り座面の縁を足の指で掴みながら、三件目の資料をスクロールしていた。被害者は四十二歳の男性。死亡推定時刻は午後十時から十一時の間。妻のアリバイは完璧だが、完璧すぎるとも言える。</p>
+   <p>左手を伸ばして、手元の甘味に触れた。</p>
+   <p>白くて、丸くて、驚くほど柔らかい。指先で遊ぶように軽く押すと沈み込み、離せばふわりと元の形に戻る。この上品な弾力は上等な菓子にしかないものだ。そこらの洋菓子店のものとは一線を画す。これは代わりの効かない唯一の名品だ。</p>
+   <p>生菓子の類は冷やして出すものが多いが、私は人肌程度のものが好きだ。手で触れた時や舌に乗せた時の、じんわりとした温かさは捜査で酷使された脳への癒しと言えるだろう。</p>
+   <p>妻の証言では、夫が帰宅したのは九時半ちょうど。だが、近隣の防犯カメラには九時十二分に男の車が映っている。証言とは十八分のずれだ。</p>
+   <p>考えながら、指先で甘味の縁をゆっくりなぞった。輪郭を確かめるように、一周、二周。中心へ近づくほど手触りはしっとりとしている。</p>
+   <p>中央の頂には小さな果実がひとつ載っている。淡い色をしていて、控えめで、可愛らしい装飾だ。
+モニターに視線を固定したまま身を屈めて、舌先で触れた。
+甘そうな熟れた果実をすぐに食べてしまうのは惜しい。舌で転がしていると、私に応えるように硬く張り詰めている。</p>
+   <p>……十八分。その間に妻は何をしていたのか。</p>
+   <p>果実を唇で挟み、軽く吸った。皿が小さな音を立てた。
+この甘味は、二つ一組だ。片方だけを味わうのは不公平だろう。私は右手で残りのひとつを包みこみ、同じように親指で頂を撫でた。全く同じようで、左右で微妙に違う。右の方がわずかに硬く、皿は先ほどよりも大きな音を立てた。</p>
+   <p>そこで気が付いた。妻の通話記録だ。九時十五分の電話。妻は「誰か」と空白の十八分間に何かを示し合わせていた。
+なるほど、犯人は分かった。だが報告は朝でも構わないだろう。</p>
+   <p>モニターから目を離すと、手元の甘味が小さく震えた。皿の音は部屋の外にまで響きそうなほどだ。</p>
+   <p>息を詰めて、私の名前を呼ぶ美しい白磁。</p>
+   <p>モニターの光が、私の膝の間で身をよじる彼女の白い肌を照らす。シャツの前ははだけて、一対の私専用の甘味を捧げている。頬は赤く染まり、唇を薄く開いて、潤んだ目でこちらを見上げていた。</p>
+   <p>事件は解決した。後は、心ゆくまで上質な甘味を楽しむだけだ。</p>
+  </div>
+  <div class="ending" id="ending"><span class="end-rule" aria-hidden="true"></span><span class="end-label">FIN</span><div><button class="text-button" id="restart" type="button" hidden>はじめに戻る</button></div></div>
+ </section>
+</main>
+<footer class="credit">Fan fiction made by @uni_ikr</footer>
+<aside class="player" id="player" aria-label="文章表示の操作" hidden>
+ <div class="player-inner">
+  <div class="player-meta"><span id="status" role="status">表示中</span><span id="percentage">0%</span></div>
+  <div class="progress" aria-hidden="true"><i id="progress-bar"></i></div>
+  <div class="player-actions">
+   <button class="pause" id="pause" type="button">一時停止</button>
+   <label class="speed"><span class="speed-label">速さ</span><select id="speed" aria-label="文字の表示速度"><option value="65">ゆっくり</option><option value="40" selected>ふつう</option><option value="22">はやく</option></select></label>
+   <button class="text-button" id="finish" type="button">全文を表示</button>
+  </div>
+ </div>
+</aside>
+<script>
+(()=>{
+ 'use strict';
+ const $=id=>document.getElementById(id);
+ const story=$('story'),reading=$('reading'),player=$('player'),ending=$('ending');
+ const motion=matchMedia('(prefers-reduced-motion: reduce)');
+ const segmenter=typeof Intl.Segmenter==='function'?new Intl.Segmenter('ja',{granularity:'grapheme'}):null;
+ const units=text=>segmenter?Array.from(segmenter.segment(text),part=>part.segment):Array.from(text);
+ const entries=Array.from(story.querySelectorAll('p'),p=>({p,text:p.textContent,chars:units(p.textContent),typed:null}));
+ const total=entries.reduce((sum,e)=>sum+e.chars.length,0);
+ let state='cover',index=0,offset=0,count=0,timer=null,resumeOnVisible=false;
+ function stop(){if(timer!==null){clearTimeout(timer);timer=null;}}
+ function meter(){
+  const value=Math.round(count/total*100);
+  $('percentage').textContent=value+'%';$('progress-bar').style.width=value+'%';
+ }
+ function controls(){
+  document.body.classList.toggle('is-paused',state==='paused');
+  $('pause').textContent=state==='paused'?'再生':'一時停止';
+  $('pause').disabled=state==='done';$('speed').disabled=state==='done';$('finish').disabled=state==='done';
+  $('status').textContent=state==='done'?'全文を表示しています':state==='paused'?'一時停止中':'表示中';
+ }
+ function prepare(){
+  stop();index=0;offset=0;count=0;
+  for(const e of entries){
+   e.p.hidden=true;e.p.classList.remove('current');e.p.replaceChildren();
+   const accessible=document.createElement('span');accessible.className='sr-only';accessible.textContent=e.text;
+   e.typed=document.createElement('span');e.typed.className='typed';e.typed.setAttribute('aria-hidden','true');
+   e.p.append(accessible,e.typed);
+  }
+  ending.hidden=true;meter();
+ }
+ function complete(){
+  stop();state='done';resumeOnVisible=false;
+  for(const e of entries){e.p.hidden=false;e.p.classList.remove('current');e.p.textContent=e.text;}
+  count=total;ending.hidden=false;$('restart').hidden=false;meter();controls();
+ }
+ function tick(){
+  timer=null;if(state!=='playing')return;
+  if(index>=entries.length){complete();return;}
+  const e=entries[index];e.p.hidden=false;e.p.classList.add('current');
+  const char=e.chars[offset++];e.typed.textContent+=char;count++;meter();
+  let delay=Number($('speed').value);
+  if(/[。、！？…\n]/u.test(char))delay*=3.8;
+  if(offset===e.chars.length){e.p.classList.remove('current');index++;offset=0;delay+=420;}
+  timer=setTimeout(tick,delay);
+ }
+ function start(full){
+  prepare();document.body.classList.add('is-reading');
+  $('cover-actions').hidden=true;reading.hidden=false;player.hidden=false;
+  state='playing';controls();
+  if(full||motion.matches)complete();else tick();
+  reading.focus({preventScroll:true});
+  reading.scrollIntoView({behavior:motion.matches?'auto':'smooth',block:'start'});
+ }
+ $('begin').addEventListener('click',()=>start(false));
+ $('read-all').addEventListener('click',()=>start(true));
+ $('finish').addEventListener('click',()=>{complete();$('restart').focus({preventScroll:true});});
+ $('pause').addEventListener('click',()=>{
+  if(state==='playing'){state='paused';resumeOnVisible=false;stop();}
+  else if(state==='paused'){state='playing';tick();}
+  controls();
+ });
+ $('restart').addEventListener('click',()=>{
+  stop();state='cover';resumeOnVisible=false;document.body.classList.remove('is-reading','is-paused');
+  reading.hidden=true;player.hidden=true;$('cover-actions').hidden=false;
+  $('begin').focus({preventScroll:true});window.scrollTo({top:0,behavior:motion.matches?'auto':'smooth'});
+ });
+ document.addEventListener('visibilitychange',()=>{
+  if(document.hidden&&state==='playing'){state='paused';resumeOnVisible=true;stop();controls();}
+  else if(!document.hidden&&resumeOnVisible){resumeOnVisible=false;state='playing';controls();tick();}
+ });
+ const reduce=()=>{if(motion.matches&&(state==='playing'||state==='paused'))complete();};
+ if(motion.addEventListener)motion.addEventListener('change',reduce);
+ reading.hidden=true;$('cover-actions').hidden=false;
+ if(motion.matches)$('begin').textContent='読む';
+})();
+</script>
+</body>
+</html>
